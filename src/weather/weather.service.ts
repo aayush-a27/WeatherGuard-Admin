@@ -88,4 +88,34 @@ export class WeatherService {
       `_Updated at ${new Date().toLocaleTimeString()}_`
     );
   }
+
+  /**
+   * Resolve a city name from latitude/longitude coordinates
+   * using OpenWeatherMap's weather API (which returns the city name).
+   */
+  async getCityFromCoordinates(lat: number, lon: number): Promise<string> {
+    this.logger.log(`Resolving city from coordinates: lat=${lat}, lon=${lon}`);
+
+    try {
+      const response = await firstValueFrom(
+        this.httpService.get<OpenWeatherMapResponse>(this.baseUrl, {
+          params: {
+            lat,
+            lon,
+            appid: this.apiKey,
+            units: 'metric',
+          },
+        }),
+      );
+
+      const cityName = response.data.name;
+      this.logger.log(`Resolved city: ${cityName}`);
+      return cityName;
+    } catch (error) {
+      this.logger.error(
+        `Failed to resolve city from coordinates: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      );
+      throw error;
+    }
+  }
 }

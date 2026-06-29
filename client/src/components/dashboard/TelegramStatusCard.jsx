@@ -89,7 +89,7 @@ export default function TelegramStatusCard({ user }) {
             <ol className="text-xs text-brand-600 dark:text-brand-400 space-y-1 list-decimal list-inside">
               <li>
                 Open Telegram and search for{' '}
-                <span className="font-mono font-semibold">@WeatherGuardBot</span>
+                <span className="font-mono font-semibold">@WeatherGuardAdminBot</span>
               </li>
               <li>
                 Send <span className="font-mono font-semibold">/start</span> to the bot

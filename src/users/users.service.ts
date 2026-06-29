@@ -78,6 +78,22 @@ export class UsersService {
   }
 
   /**
+   * Update a user's preferred city for weather alerts.
+   */
+  async updateCity(userId: string, city: string): Promise<UserDocument> {
+    const user = await this.userModel
+      .findByIdAndUpdate(userId, { city }, { new: true })
+      .exec();
+
+    if (!user) {
+      throw new NotFoundException(`User with ID ${userId} not found`);
+    }
+
+    this.logger.log(`City updated for user ${user.email}: ${city}`);
+    return user;
+  }
+
+  /**
    * Find all approved users who have a Telegram chat ID configured.
    * Used by the scheduler to send weather alerts.
    */

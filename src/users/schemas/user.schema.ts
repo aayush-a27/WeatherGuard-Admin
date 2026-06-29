@@ -29,12 +29,12 @@ export class User {
 
   @Prop({ default: null })
   avatar?: string;
+
+  @Prop({ default: null, trim: true })
+  city?: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
-
-// Index on email for fast lookups
-UserSchema.index({ email: 1 });
 
 // Index for scheduler: approved users with telegram
 UserSchema.index({ accessStatus: 1, telegramChatId: 1 });

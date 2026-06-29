@@ -2,6 +2,7 @@ import { useAuth } from '../hooks/useAuth';
 import UserCard from '../components/dashboard/UserCard';
 import AccessStatusCard from '../components/dashboard/AccessStatusCard';
 import TelegramStatusCard from '../components/dashboard/TelegramStatusCard';
+import CityCard from '../components/dashboard/CityCard';
 
 /**
  * User dashboard page showing profile, access status, and Telegram connection.
@@ -22,9 +23,9 @@ export default function DashboardPage() {
       </div>
 
       {/* Dashboard Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Profile Card — full width on mobile, half on desktop */}
-        <div className="lg:col-span-2">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Profile Card — full width */}
+        <div className="lg:col-span-3">
           <UserCard user={user} />
         </div>
 
@@ -33,6 +34,9 @@ export default function DashboardPage() {
 
         {/* Telegram Connection */}
         <TelegramStatusCard user={user} />
+
+        {/* Weather City */}
+        <CityCard user={user} />
       </div>
     </div>
   );

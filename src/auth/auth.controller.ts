@@ -33,7 +33,7 @@ export class AuthController {
     const token = this.authService.generateJwt(user);
     const frontendUrl = this.configService.get<string>('frontendUrl');
 
-    res.redirect(`${frontendUrl}?token=${token}`);
+    res.redirect(`${frontendUrl}/login?token=${token}`);
   }
 
   // ─── GitHub OAuth ─────────────────────────────────────
@@ -55,6 +55,6 @@ export class AuthController {
     const token = this.authService.generateJwt(user);
     const frontendUrl = this.configService.get<string>('frontendUrl');
 
-    res.redirect(`${frontendUrl}?token=${token}`);
+    res.redirect(`${frontendUrl}/login?token=${token}`);
   }
 }

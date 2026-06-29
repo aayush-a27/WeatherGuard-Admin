@@ -1,9 +1,9 @@
-// API base URL — proxied through Vite in development
-export const API_BASE_URL = '/api';
+// API base URL — uses VITE_API_URL from .env or falls back to /api for local dev
+export const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
-// OAuth endpoints (direct backend URLs, not proxied)
-export const OAUTH_GOOGLE_URL = `${window.location.origin}/api/auth/google`;
-export const OAUTH_GITHUB_URL = `${window.location.origin}/api/auth/github`;
+// OAuth endpoints (direct backend URLs)
+export const OAUTH_GOOGLE_URL = `${import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace('/api', '') : window.location.origin}/api/auth/google`;
+export const OAUTH_GITHUB_URL = `${import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace('/api', '') : window.location.origin}/api/auth/github`;
 
 // Local storage keys
 export const STORAGE_KEYS = {

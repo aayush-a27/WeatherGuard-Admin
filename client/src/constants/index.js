@@ -1,9 +1,17 @@
-// API base URL — uses VITE_API_URL from .env or falls back to /api for local dev
-export const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+// Check if we are running locally or in production
+const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+// API base URL
+export const API_BASE_URL = isDev ? '/api' : 'https://weatherguard-admin-iq70.onrender.com/api';
 
 // OAuth endpoints (direct backend URLs)
-export const OAUTH_GOOGLE_URL = `${import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace('/api', '') : window.location.origin}/api/auth/google`;
-export const OAUTH_GITHUB_URL = `${import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace('/api', '') : window.location.origin}/api/auth/github`;
+export const OAUTH_GOOGLE_URL = isDev 
+  ? `${window.location.origin}/api/auth/google` 
+  : 'https://weatherguard-admin-iq70.onrender.com/api/auth/google';
+
+export const OAUTH_GITHUB_URL = isDev 
+  ? `${window.location.origin}/api/auth/github` 
+  : 'https://weatherguard-admin-iq70.onrender.com/api/auth/github';
 
 // Local storage keys
 export const STORAGE_KEYS = {

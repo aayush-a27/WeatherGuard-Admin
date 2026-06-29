@@ -24,7 +24,7 @@ export class SchedulerService {
    * Runs every hour. Fetches weather per user's preferred city
    * and sends personalized alerts to all approved Telegram-connected users.
    */
-  @Cron(CronExpression.EVERY_HOUR)
+  @Cron(CronExpression.EVERY_MINUTE)
   async handleWeatherAlerts(): Promise<void> {
     this.logger.log('⏰ Cron job started: Sending weather alerts...');
 

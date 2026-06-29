@@ -265,23 +265,22 @@ JWT_EXPIRES_IN=7d
 
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
-GOOGLE_CALLBACK_URL=http://localhost:3000/api/auth/google/callback
+GOOGLE_CALLBACK_URL=https://weatherguard-admin-iq70.onrender.com/api/auth/google/callback
 
 GITHUB_CLIENT_ID=your_github_client_id
 GITHUB_CLIENT_SECRET=your_github_client_secret
-GITHUB_CALLBACK_URL=http://localhost:3000/api/auth/github/callback
+GITHUB_CALLBACK_URL=https://weatherguard-admin-iq70.onrender.com/api/auth/github/callback
 
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token
 OPENWEATHERMAP_API_KEY=your_openweathermap_api_key
 DEFAULT_CITY=London
 
-FRONTEND_URL=http://localhost:5173
-PORT=3000
+FRONTEND_URL=https://weather-guard-admin-rffp.vercel.app
 ```
 
 ### Frontend (`/client/.env`)
 ```env
-VITE_API_URL=http://localhost:3000/api
+VITE_API_URL=https://weatherguard-admin-iq70.onrender.com/api
 ```
 
 ---
@@ -320,14 +319,14 @@ VITE_API_URL=http://localhost:3000/api
    ```
 3. Create a `.env` file inside the `client` directory:
    ```bash
-   echo "VITE_API_URL=http://localhost:3000/api" > .env
+   echo "VITE_API_URL=https://weatherguard-admin-iq70.onrender.com" > .env
    ```
 4. Start the Vite development server:
    ```bash
    npm run dev
    ```
 
-The frontend will be accessible at `http://localhost:5173` and the backend at `http://localhost:3000`.
+The frontend will be accessible at `https://weather-guard-admin-rffp.vercel.app` and the backend at `https://weatherguard-admin-iq70.onrender.com`.
 
 ---
 
